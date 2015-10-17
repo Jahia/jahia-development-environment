@@ -1,0 +1,16 @@
+---
+- name: Install latest MongoDB release
+  yum: name={{ item }} state=present
+  with_items:
+    - mongo-10gen
+    - mongo-10gen-server
+
+- name: Create default configuration template
+  template: src=mongodb.conf.tpl dest=/etc/mongodb.conf owner=root group=root mode=0644
+
+- name: Insure deamon is running correctly
+  service: name=mongod state=started
+
+- name: Load data
+  command: "sudo /bin/sh /vagrant/init-data.sh"
+

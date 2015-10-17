@@ -1,0 +1,16 @@
+---
+# application tasks to be customized and to run after the main provision
+- name: Download Maven
+  command: "wget -q -O {{maven_archive}} {{maven_download_url}} creates={{maven_archive}}"
+
+- name: Unpack archive Maven
+  command: "tar -zxf {{maven_archive}} -C {{install_folder}} creates={{maven_name}}"
+
+- name: Fix ownership on Maven
+  file: path={{maven_name}} recurse=yes state=directory owner=vagrant group=vagrant
+
+- name: Make Maven available for system
+  command: 'alternatives --install "/usr/bin/mvn" "mvn" "{{maven_name}}/bin/mvn" 2000'
+
+- name: Symlink Maven directory
+  file: src={{maven_name}} path={{maven_link}} state=link

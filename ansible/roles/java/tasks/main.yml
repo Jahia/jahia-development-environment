@@ -1,0 +1,18 @@
+---
+- name: Download Java
+  command: "wget -q -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{java_download_url}} creates={{java_archive}}"
+
+- name: Unpack archive Java
+  command: "tar -zxf {{java_archive}} -C /opt creates={{java_name}}"
+
+- name: Fix ownership on Java
+  file: state=directory path={{java_name}} owner=vagrant group=vagrant recurse=yes
+
+- name: Make Java available for system
+  command: 'alternatives --install "/usr/bin/java" "java" "{{java_name}}/bin/java" 2000'
+
+- name: Symlink Maven directory
+  file: src={{java_name}} path={{java_link}} state=link
+
+- name: Change Security /usr/share/jvm/jre/lib/security/java.security
+  lineinfile: dest=/usr/share/jvm/jre/lib/security/java.security regexp='^keystore\.type\.compat=true' line='keystore.type.compat=false' owner=root group=root mode=0644

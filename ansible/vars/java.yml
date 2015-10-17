@@ -1,0 +1,5 @@
+# Here are variables related to the java installation
+java_download_url: http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz
+java_name: "{{install_folder}}/jdk1.8.0_60"
+java_archive: "{{download_folder}}/jdk-8u60-linux-x64.tar.gz"
+java_link: /usr/share/jvm

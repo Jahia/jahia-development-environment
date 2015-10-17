@@ -1,0 +1,9 @@
+---
+- name: Install Nginx
+  sudo: yes
+  yum: name=nginx state=present
+
+- name: Change default nginx site
+  sudo: yes
+  template: src={{ ws_template }} dest={{ ws_vhost_path }}/{{ ws_vhost_file }}
+  notify: Restart nginx

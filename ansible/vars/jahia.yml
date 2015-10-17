@@ -1,0 +1,5 @@
+# Here are variables related to the Jahia installation
+jahia_download_url: http://www.jahia.com/downloads/jahia/digitalfactory7.1.0/DigitalFactory-EnterpriseDistribution-7.1.0.0-r52740.3425.jar
+jahia_name: "{{install_folder}}/DigitalFactory-EnterpriseDistribution"
+jahia_archive: "{{download_folder}}/DigitalFactory-EnterpriseDistribution-7.1.0.0-r52740.3425.jar"
+jahia_modules: "{{jahia_name}}/digital-factory-data/modules"

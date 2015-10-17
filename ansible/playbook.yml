@@ -1,0 +1,24 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    web_server: nginx
+    servername: jahia.local
+    timezone: UTC
+  vars_files:
+    - vars/mysql.yml
+    - vars/common.yml
+    - vars/java.yml
+    - vars/maven.yml
+    - vars/jahia.yml
+    - vars/tomcat.yml
+    - [ "vars/nginx.yml", "vars/ws_defaults.yml" ]
+  roles:
+    - init
+    - nginx
+    - mysql
+    - java
+    - maven
+    - jahia
+    - tomcat
+    - mongodb

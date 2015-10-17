@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AutomatedInstallation langpack="eng">
+	<com.izforge.izpack.panels.HelloPanel id="UNKNOWN (com.izforge.izpack.panels.HelloPanel)"/>
+	<com.izforge.izpack.panels.LicencePanel id="UNKNOWN (com.izforge.izpack.panels.LicencePanel)"/>
+	<com.izforge.izpack.panels.TargetPanel id="UNKNOWN (com.izforge.izpack.panels.TargetPanel)">
+		<installpath>/opt/DigitalFactory-EnterpriseDistribution</installpath>
+	</com.izforge.izpack.panels.TargetPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="installType">
+		<userInput>
+			<entry key="installation.type" value="express"/>
+		</userInput>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.PacksPanel id="packsPanel">
+		<pack index="0" name="jahia" selected="true"/>
+		<pack index="1" name="tomcat" selected="true"/>
+	</com.izforge.izpack.panels.PacksPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="serverType">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="dbMode">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="dbType">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="dbTypeMySQL">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="dbSettings">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="webApp">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="appServer">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="operatingMode">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="ldap">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="cluster">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="superUser">
+		<userInput>
+			<entry key="superUser.password" value="root"/>
+		</userInput>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="mailSettings">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="studioToolSettings">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="externalToolSettings">
+		<userInput>
+			<entry key="dmConfig.imagemagickPath" value=""/>
+			<entry key="dmConfig.officePath" value=""/>
+			<entry key="dmConfig.validate" value="true"/>
+			<entry key="dmConfig.ffmpegPath" value=""/>
+			<entry key="dmConfig.pdf2swfPath" value=""/>
+		</userInput>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="additionalSettings">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.UserInputPanel id="externalizedConfig">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.SummaryPanel id="UNKNOWN (com.izforge.izpack.panels.SummaryPanel)"/>
+	<com.izforge.izpack.panels.ExtendedInstallPanel id="UNKNOWN (com.izforge.izpack.panels.ExtendedInstallPanel)"/>
+	<com.izforge.izpack.panels.ShortcutPanel id="shortcutPanel"/>
+	<com.izforge.izpack.panels.UserInputPanel id="afterInstall">
+		<userInput/>
+	</com.izforge.izpack.panels.UserInputPanel>
+	<com.izforge.izpack.panels.ProcessPanel id="UNKNOWN (com.izforge.izpack.panels.ProcessPanel)"/>
+	<com.izforge.izpack.panels.FinishPanel id="UNKNOWN (com.izforge.izpack.panels.FinishPanel)"/>
+</AutomatedInstallation>

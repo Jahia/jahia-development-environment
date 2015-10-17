@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0">
+	<profiles>
+		<profile>
+			<id>jahia-server</id>
+			<properties>
+				<jahia.deploy.targetServerType>tomcat</jahia.deploy.targetServerType>
+				<jahia.deploy.targetServerVersion>7</jahia.deploy.targetServerVersion>
+				<jahia.deploy.targetServerDirectory>/opt/DigitalFactory-EnterpriseDistribution/tomcat</jahia.deploy.targetServerDirectory>
+			</properties>
+		</profile>
+	</profiles>
+	
+	<activeProfiles>
+		<activeProfile>jahia-server</activeProfile>
+	</activeProfiles>
+</settings>

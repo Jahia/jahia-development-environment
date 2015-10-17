@@ -1,0 +1,19 @@
+---
+# roles/tomcat/tasks/main.yml
+- name: Symlink install directory
+  file: src={{tomcat}} path={{tomcat_link}} state=link  
+
+- name: Install Tomcat init script
+  copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
+
+- name: Create a link of init script and define load order
+  file: src=/etc/init.d/tomcat path=/etc/rc3.d/S73tomcat state=link
+
+- name: Start Tomcat
+  service: name=tomcat state=restarted enabled=yes
+
+- name: Wait for tomcat to start
+  wait_for: host={{host}} port={{http_port}}
+
+- name: Stop iptables
+  service: name=iptables state=stopped

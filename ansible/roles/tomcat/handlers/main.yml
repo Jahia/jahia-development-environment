@@ -1,0 +1,7 @@
+---
+# roles/tomcat/handlers/main.yml
+- name: Restart tomcat 
+  service: name=tomcat state=restarted
+
+- name: Restart iptables
+  service: name=iptables state=restarted

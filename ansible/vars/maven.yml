@@ -1,0 +1,5 @@
+# Here are variables related to the maven installation
+maven_download_url: http://wwwftp.ciril.fr/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz
+maven_name: "{{install_folder}}/apache-maven-3.3.3"
+maven_archive: "{{download_folder}}/apache-maven-3.3.3-bin.tar.gz"
+maven_link: /usr/share/maven

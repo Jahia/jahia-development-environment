@@ -1,0 +1,6 @@
+.vagrant
+.DS_Store
+.idea
+/opt
+*.iml
+vagrant_config.yml

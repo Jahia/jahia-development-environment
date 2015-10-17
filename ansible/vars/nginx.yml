@@ -1,0 +1,5 @@
+---
+# nginx variables
+ws_vhost_path: /etc/nginx/conf.d
+ws_vhost_file: jahia.conf
+ws_template: default.tpl

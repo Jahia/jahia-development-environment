@@ -1,0 +1,8 @@
+---
+doc_root: /vagrant
+sys_packages: []
+dist: precise
+pecl_packages: []
+host: 192.168.33.99
+download_folder: /vagrant/opt
+install_folder: /opt

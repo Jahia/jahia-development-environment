@@ -1,0 +1,5 @@
+mysql:
+    root_password: jahia 
+    user: jahia
+    password: jahia
+    database: jahia

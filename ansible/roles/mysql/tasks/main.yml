@@ -1,0 +1,36 @@
+---
+- name: Install MySQL Packages
+  sudo: yes
+  yum: name={{ item }} state=present
+  with_items:
+    - mysql-community-server
+    - MySQL-python
+
+- name: Download MySQL Driver
+  get_url: url=http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar dest={{download_folder}}
+
+- name: Ensure MySQL is started and enabled on boot.
+  service: "name=mysqld state=started enabled=yes" 
+  
+- name: Alter my.cnf
+  copy: src=my.cnf dest=/etc/my.cnf owner=vagrant group=vagrant mode=0644
+
+- name:
+  file: src=/etc/init.d/mysqld path=/etc/rc3.d/S64mysqld state=link  
+
+- name: Restart MySQL
+  service: name=mysqld enabled=yes state=restarted   
+  
+- name: Update root password for all root accounts
+  mysql_user: name=root host={{ item }} check_implicit_admin=yes password={{ mysql.root_password }} login_user=root login_password={{ mysql.root_password }}
+  with_items:
+    - "{{ hostname }}"
+    - 127.0.0.1
+    - ::1
+    - localhost
+
+- name: Create databases
+  mysql_db: name={{ mysql.database }} state=present login_user=root login_password={{ mysql.root_password }}
+
+- name: Create users
+  mysql_user: name={{ mysql.user }} password={{ mysql.password }} priv={{ mysql.database }}.*:ALL state=present login_user=root login_password={{ mysql.root_password }}
