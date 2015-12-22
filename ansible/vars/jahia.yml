@@ -1,5 +1,17 @@
 # Here are variables related to the Jahia installation
-jahia_download_url: http://www.jahia.com/downloads/jahia/digitalfactory7.1.0/DigitalFactory-EnterpriseDistribution-7.1.0.0-r52740.3425.jar
+jahia_package_name: "DigitalExperienceManager-EnterpriseDistribution-7.1.1.0-r53717.3663.jar"
+jahia_download_url: "https://www.jahia.com/downloads/jahia/digitalexperiencemanager7.1.1/{{jahia_package_name}}"
 jahia_name: "{{install_folder}}/DigitalFactory-EnterpriseDistribution"
-jahia_archive: "{{download_folder}}/DigitalFactory-EnterpriseDistribution-7.1.0.0-r52740.3425.jar"
+jahia_archive: "{{download_folder}}/{{jahia_package_name}}"
 jahia_modules: "{{jahia_name}}/digital-factory-data/modules"
+
+mf_download_url: https://www.jahia.com/downloads/jahia/marketingfactory1.0/package/unomi-context-server-package-1.0.0.tar.gz
+mf_name: "{{install_folder}}/context-server-package-1.0.0"
+mf_archive: "{{download_folder}}/unomi-context-server-package-1.0.0.tar.gz"
+mf_module: "EnterpriseDistribution-MarketingFactory-1.0.0.jar"
+mf_module_url: "http://store.jahia.com/files/live/sites/private-app-store/contents/modules-repository/packages/MarketingFactory/MarketingFactory-1.0.0/{{mf_module}}"
+mf_module_archive: "{{download_folder}}/{{mf_module}}"
+
+ff_module: "EnterpriseDistribution-FormFactory-1.1.1.jar"
+ff_module_url: "http://store.jahia.com/files/live/sites/private-app-store/contents/modules-repository/packages/FormFactory/FormFactory-1.1.1/{{ff_module}}"
+ff_module_archive: "{{download_folder}}/{{ff_module}}"

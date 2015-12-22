@@ -14,5 +14,5 @@
 - name: Symlink Maven directory
   file: src={{java_name}} path={{java_link}} state=link
 
-- name: Change Security /usr/share/jvm/jre/lib/security/java.security
-  lineinfile: dest=/usr/share/jvm/jre/lib/security/java.security regexp='^keystore\.type\.compat=true' line='keystore.type.compat=false' owner=root group=root mode=0644
+#- name: Change Security /usr/share/jvm/jre/lib/security/java.security
+#  lineinfile: dest=/usr/share/jvm/jre/lib/security/java.security regexp='^keystore\.type\.compat=true' line='keystore.type.compat=false' owner=root group=root mode=0644
