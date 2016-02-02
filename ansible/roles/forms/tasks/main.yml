@@ -1,0 +1,11 @@
+---
+# application tasks to be customized and to run after the main provision
+- name: Download Bundles
+  get_url: url={{ item }} dest={{jahia_modules}} mode=0440
+  with_items:
+    - "{{ff_module_url}}"
+
+- name: Extract Forms Factory modules
+  command: "{{java_link}}/bin/jar -xvf {{ff_module}}"
+  args:
+      chdir: "{{jahia_modules}}"

@@ -1,0 +1,29 @@
+---
+# application tasks to be customized and to run after the main provision
+- name: Download Marketing Factory
+  command: "wget -q -O {{mf_archive}} {{mf_download_url}} creates={{mf_archive}}"
+
+- name: Unpack archive Marketing Factory
+  command: "tar -zxf {{mf_archive}} -C {{install_folder}} creates={{mf_name}}"
+
+- name: Download Bundles
+  get_url: url={{ item }} dest={{jahia_modules}}  mode=0440
+  with_items:
+    - "{{mf_module_url}}"
+
+- name: Extract Marketing Factory modules
+  command: "{{java_link}}/bin/jar -xvf {{mf_module}}"
+  args:
+      chdir: "{{jahia_modules}}"
+
+- name: Fix ownership on Marketing Factory
+  file: state=directory path={{mf_name}} owner=vagrant group=vagrant recurse=yes
+
+- name: Install Context Server init script
+  copy: src=context-server-initscript.sh dest=/etc/init.d/contextserver mode=0755
+
+- name: Create a link of init script and define load order
+  file: src=/etc/init.d/contextserver path=/etc/rc3.d/S111contextserver state=link
+
+- name: Start Context Server
+  service: name=contextserver state=restarted enabled=yes

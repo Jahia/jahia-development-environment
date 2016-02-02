@@ -1,56 +1,60 @@
+
 <jahia-licenses>
   <license-package format="1.1" product="Digital Factory" release="7.1.0" customTermsAndConditions="false" edition="df">
-    <license component="org.jahia.core" licensee="Catamania-dev" signature="MCwCFFKUFKGzkL9zHx2XeYSQkWyONhHYAhRd9SjMgJv1ulbYel6vxoJBumw4OQ==" certAlias="jahiaCert">
-      <limit class="org.jahia.security.license.DateValidator" name="date" value="30.06.2016 00:01"/>
-      <limit class="org.jahia.security.license.ReleaseNumberValidator" name="release" value="7.1 to 7.2"/>
+    <license component="org.jahia.core" licensee="Digital Factory Evaluation Customer" signature="MCwCFGI2DdyELKxP094u8dLH7SJJB8IUAhRURx4IzxcO4ho0fTmdLmO9mJoj5w==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.CommonDaysLeftValidator" name="maxUsageDays" value="30"/>
+      <limit class="org.jahia.security.license.ReleaseNumberValidator" name="release" value="7.0 to 7.2"/>
     </license>
-    <license component="org.jahia.remotepublish" licensee="Catamania-dev" signature="MC0CFAhMXKhU1om3R1ccV2+8kqBMaB86AhUAhhXyNnk16uVspybsmpMlSwhTCWs=" certAlias="jahiaCert">
+    <license component="org.jahia.remotepublish" licensee="Digital Factory Evaluation Customer" signature="MCwCFD+m02dZ1j8ZUwmiuHsOwqLH/jcfAhRl4ZckCtfzXMtRyu1WWatFST5lDg==" certAlias="jahiaCert">
       <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.linkchecker" licensee="Catamania-dev" signature="MCwCFCl0C6fMpSf5jzPpuuZE7irdG47kAhQRhaqWgodTFDNmdOHsMj5Gls4a4g==" certAlias="jahiaCert">
+    <license component="org.jahia.linkchecker" licensee="Digital Factory Evaluation Customer" signature="MC0CFQCRHzLVdoG8ixfAcf/jD/m5YpWR5QIUPEBJjvSXnq/wgtDp3n2RsqaN/PY=" certAlias="jahiaCert">
       <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.authentication.ntlm" licensee="Catamania-dev" signature="MCwCFCYxs46YQ95OqJIBU/YHXwNylbKxAhQ1egkUMP2r2vJVdDan+kLzZkjrhg==" certAlias="jahiaCert">
+    <license component="org.jahia.authentication.ntlm" licensee="Digital Factory Evaluation Customer" signature="MCwCFC3LtFtl/44qKj1oM+S79b+l2EWQAhRrKG48OGq+x5GJScI80PQd6/qbFg==" certAlias="jahiaCert">
       <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.authentication.jaas" licensee="Catamania-dev" signature="MCwCFCuzyALgvEcnh7J+5CWKdF0Of3T7AhQJHtFQV/kch2uqlwxbggRi8UjeUQ==" certAlias="jahiaCert">
+    <license component="org.jahia.authentication.jaas" licensee="Digital Factory Evaluation Customer" signature="MC0CFQCVGRRs/vaMNjW1yCTE/6YfnNiOSAIUWhVGTUlRh6qfoKL1cYK13XLs/zk=" certAlias="jahiaCert">
       <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.authentication.spnego" licensee="Catamania-dev" signature="MCwCFCrDKyBS3vGUlChb7IZRsTEJ6INAAhR2Sm1WPkt2oGt5eQ7NYR2t1YGTbA==" certAlias="jahiaCert">
+    <license component="org.jahia.authentication.spnego" licensee="Digital Factory Evaluation Customer" signature="MCwCFDtMc9mJcbsw4SdzYgFYhoOAtQfLAhQPGG9EIfv5ByxguMwGX0To4QRVKw==" certAlias="jahiaCert">
       <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.authentication.cas" licensee="Catamania-dev" signature="MCwCFC/LjGOVnLIP29DndNQ5D12nKUDuAhRlNILgla0qieH94jjED/jJvkDHSQ==" certAlias="jahiaCert">
+    <license component="org.jahia.authentication.cas" licensee="Digital Factory Evaluation Customer" signature="MC0CFGq7A5qsyXVJX/ho8RwCjvLDsDwNAhUAhW3LM5BAESTHroswjGy55X7qdVQ=" certAlias="jahiaCert">
       <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.manageWorkflow" licensee="Catamania-dev" signature="MC0CFQCQI4KdyroE2A3E8gDUmVuEjVUj+wIUK8VQoCb+FMFr0gSKofwZNjT9Fq0=" certAlias="jahiaCert">
+    <license component="org.jahia.manageWorkflow" licensee="Digital Factory Evaluation Customer" signature="MCwCFCezixdwISnXNQhZNCexlkcJlH+mAhRMgp5qtH8gfkdnr0p6f8sF7ytKVg==" certAlias="jahiaCert">
       <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.advancedContentVisibility" licensee="Catamania-dev" signature="MCwCFHpivrrWxinZFV/c5qz8F6UzDVCjAhRjSIZxXFSK2JgnFO6RGihydeICYg==" certAlias="jahiaCert">
+    <license component="org.jahia.advancedContentVisibility" licensee="Digital Factory Evaluation Customer" signature="MC4CFQCAOjsgTR2Yn7sDOmKOcPdI1LBn4wIVAIQ/Clf7hpRmI9uOtjB0WSmo3p2D" certAlias="jahiaCert">
       <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.privateAppStore" licensee="Catamania-dev" signature="MCwCFFKOiOT85eVE63FLiDAFojB2bbjaAhRMpMLHO4sC7FvviRSkX2DIszMMWw==" certAlias="jahiaCert">
+    <license component="org.jahia.privateAppStore" licensee="Digital Factory Evaluation Customer" signature="MCwCFHVvA1ma5l2TWFkv6+To+Q4vnZZhAhRu5MTIB6SNaUbidME2HAq/4+ytyw==" certAlias="jahiaCert">
       <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.wise" licensee="Catamania-dev" signature="MCwCFACJ4wKssytC/PWp5n/w4VrmRryUAhRB2EqdrAOOZCEDL9FmEND5vjro2g==" certAlias="jahiaCert">
-      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="false"/>
+    <license component="org.jahia.wise" licensee="Digital Factory Evaluation Customer" signature="MC0CFEqHJ1OckUgbuInuS0dpQTEwyAO0AhUAlED1zrJt+Y04/aLCHCdy4HJNo1I=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.portal" licensee="Catamania-dev" signature="MCwCFAicflTwiPIgy+wUl1oOwGqNDwHNAhQTsyVQuax5YRHM6aMb9kYj5edHjg==" certAlias="jahiaCert">
-      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="false"/>
+    <license component="org.jahia.portal" licensee="Digital Factory Evaluation Customer" signature="MC0CFCifG1IUUa2aFnPr9kkk3NjWITJxAhUAhtJNfowIVGedBsojT7+CoS1A18Q=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.cmis" licensee="Catamania-dev" signature="MC0CFQCWD7xSHLo50ES/xUYSl5tRadqNpwIUT6fUFOctat3oDyi7byCjSRLTnZM=" certAlias="jahiaCert">
-      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="false"/>
+    <license component="org.jahia.cmis" licensee="Digital Factory Evaluation Customer" signature="MCwCFG39dlB4X8CBgoQMM1hFyMGmI1vPAhQRiVFuhZGMvuj37Hph7gPOYlvpqA==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.esigate" licensee="Catamania-dev" signature="MCwCFAO5ioZocvP3MQLnR39061MJTTX3AhRzJCssbXgOwZ3jL74J8fE2MWe3yA==" certAlias="jahiaCert">
-      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="false"/>
+    <license component="org.jahia.esigate" licensee="Digital Factory Evaluation Customer" signature="MCwCFCjEU4egXeAug8pVLlBT+zIHGwIHAhQNjQktdKuoJ2X0AsJJJfveN/HuCQ==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.eCommerce" licensee="Catamania-dev" signature="MCwCFG3P5e1mWDU7FoTRW7sWDdHPgXQIAhRfTaW9hSR5fj9+BQ+yrykEqQ9cSQ==" certAlias="jahiaCert">
-      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="false"/>
+    <license component="org.jahia.eCommerce" licensee="Digital Factory Evaluation Customer" signature="MCwCFGuji5l7rsNDmZefTcN3E9Fluk9jAhQLSXRdZsI06fx60Fq0lmDB1OvNrw==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.formfactory" licensee="Catamania-dev" signature="MCwCFAxBlm87oPT2x6q/ClUR1LuifbfeAhQktQ7RIol1W40n4DKHwfHLJ8f30g==" certAlias="jahiaCert">
-      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="false"/>
+    <license component="org.jahia.formfactory" licensee="Digital Factory Evaluation Customer" signature="MCwCFGeR6Kby011t2I8NYbjpWEylfWwqAhR++UAUcDjIgUiMTFUoisYqc7RyFA==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
-    <license component="org.jahia.search-provider-elasticsearch" licensee="Catamania-dev" signature="MC0CFQCC0KN5R0vKH9VN6aTvust0OcZZ1wIUCzFKv8AgiyKR/mG6eTNUo8uQIzU=" certAlias="jahiaCert">
-      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="false"/>
+    <license component="org.jahia.search-provider-elasticsearch" licensee="Digital Factory Evaluation Customer" signature="MCwCFCn4GJYLIzGB2vNkQfqRApDOE3k1AhQjvz66ZqMWcU26JkbuCRu8+cvWGQ==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.marketingFactory" licensee="Digital Factory Evaluation Customer" signature="MCwCFD566k2fUwpoAOE/nJ+zcsTp2ZCHAhQ600zP62ToX6X/EC8HdVJKVU1Kzw==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
     </license>
   </license-package>
 </jahia-licenses>

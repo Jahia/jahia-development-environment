@@ -1,15 +1,15 @@
 ---
 # application tasks to be customized and to run after the main provision
-- name: Download Jahia
+- name: Download Digital Factory
   command: "wget -q -O {{jahia_archive}} {{jahia_download_url}} creates={{jahia_archive}}"
 
-- name: Unpack archive Jahia
+- name: Unpack archive Digital Factory
   command: "/usr/bin/java -jar {{jahia_archive}} /vagrant/ansible/roles/jahia/files/jahia-install-mysql.xml"
 
 #  Use the one that comes with the zip package which will be validate for 30 days.  Uncomment if Jahia has provided a license longer than 30 days.  Make sure to replace the license.xml under /ansible/roles/jahia/files.
-- name: Install Jahia License
+- name: Install Digital Factory License
   copy: src=license.xml dest=/opt/DigitalFactory-EnterpriseDistribution/license.xml mode=0755
-#  copy: src=license.xml dest={{jahia_name}}/digital-factory-config/jahia/license.xml mode=0755
+  #copy: src=license.xml dest={{jahia_name}}/digital-factory-config/jahia/license.xml mode=0755
 
 - name: Download Bundles
   get_url: url={{ item }} dest={{jahia_modules}} mode=0440
@@ -17,5 +17,5 @@
     - http://central.maven.org/maven2/org/apache/felix/org.apache.felix.scr/2.0.2/org.apache.felix.scr-2.0.2.jar
     - http://central.maven.org/maven2/org/jbundle/util/osgi/wrapped/org.jbundle.util.osgi.wrapped.org.apache.http.client/4.1.2/org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2.jar
 
-- name: Fix ownership on Jahia
+- name: Fix ownership on Digital Factory
   file: state=directory path={{jahia_name}} owner=vagrant group=vagrant recurse=yes
