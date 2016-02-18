@@ -1,19 +1,23 @@
 # Jahia Vagrant Development Environment #
 ## Install ##
 * Vagrant 1.7.4 - http://www.vagrantup.com/downloads.html
-* Virtual Box 5.0.2 - https://www.virtualbox.org/
+* Virtual Box 5.0.14 - https://www.virtualbox.org/
 * Homebrew - http://brew.sh/
 * Ansible, `brew install ansible`
 
 ## Installed Applications on VM ##
-* Digital Factory Enterprise Edition 7
+* Digital Factory Enterprise Edition 7.1.1.0
+* Marketing Factory 1.0
+* Forms Factory 1.1
 * Nginx
 * Java 8
 * Apache Maven 3
 * MySQL 5
 
 ## Downloaded Application ##
-* Digital Factory Enterprise Edition 7
+* Digital Factory Enterprise Edition 7.1.1.0
+* Marketing Factory 1.0
+* Forms Factory 1.1
 * Nginx
 * Jave 8
 * Apache Maven 3
