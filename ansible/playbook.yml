@@ -13,9 +13,13 @@
     - vars/jahia.yml
     - vars/tomcat.yml
     - [ "vars/nginx.yml", "vars/ws_defaults.yml" ]
+    - vars/php.yml
+    - vars/openldap.yml
   roles:
     - init
     - nginx
+    - php
+    - openldap
     - mysql
     - java
     - maven

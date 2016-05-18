@@ -1,0 +1,111 @@
+---
+# tasks file for ansible-openldap
+
+- name: Install OpenLDAP
+  sudo: yes
+  yum: name={{ item }} state=present
+  with_items:
+    - openldap-clients
+    - openldap-servers
+
+- name: Copy DB Config
+  command: 'cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG'
+
+- name: Fix ownership on LDAP
+  file: state=directory path=/var/lib/ldap owner=ldap group=ldap recurse=yes
+  notify: Restart slapd
+
+- name: Ensure openldap is started
+  service: name=slapd state=started enabled=yes
+
+- name: Genrate ldap master password
+  shell: /usr/sbin/slappasswd -s {{ openldap_admin_password }}
+  register: generated_root_password
+  ignore_errors: yes
+  changed_when: False
+
+- name: Create chrootpw.ldif
+  sudo: yes
+  template: src=chrootpw.tpl dest=/tmp/chrootpw.ldif
+
+- name: Execute ldapadd to update root password
+  sudo: yes
+  command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /tmp/chrootpw.ldif'
+  ignore_errors: yes
+
+- name: Execute ldapadd to cosine schema
+  sudo: yes
+  command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif'
+  ignore_errors: yes
+
+- name: Execute ldapadd to nis schema
+  sudo: yes
+  command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif'
+  ignore_errors: yes
+
+- name: Execute ldapadd to inetorgperson schema
+  sudo: yes
+  command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif'
+  ignore_errors: yes
+
+- name: Genrate ldap manager password
+  shell: /usr/sbin/slappasswd -s {{ openldap_manager_password }}
+  register: generated_manger_password
+  ignore_errors: yes
+  changed_when: False
+
+- name: Create chdomain.ldif
+  sudo: yes
+  template: src=chdomain.tpl dest=/tmp/chdomain.ldif
+
+- name: Execute ldapadd to update manager password
+  sudo: yes
+  command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /tmp/chdomain.ldif'
+  ignore_errors: yes
+
+- name: Create basedomain.ldif
+  sudo: yes
+  template: src=basedomain.tpl dest=/tmp/basedomain.ldif
+
+- name: Execute ldapadd to set domain
+  sudo: yes
+  command: 'ldapadd -x -D cn=Manager,dc=srv,dc=world -w {{ openldap_manager_password }} -f /tmp/basedomain.ldif'
+
+- name: Ensure openldap is restarted
+  service: name=slapd state=restarted enabled=yes
+  changed_when: False
+
+#- name: configuring ldap
+#  template:
+#    src: "etc/openldap/ldap.conf.j2"
+#    dest: "/etc/openldap/ldap.conf"
+#    owner: root
+#    group: root
+#    mode: 0644
+#
+#- group: name=www-data state=present
+#
+#- user: name=www-data group=www-data state=present
+#
+#- name: configuring phpldapadmin
+#  template:
+#    src: "etc/phpldapadmin/config.php.j2"
+#    dest: "/etc/phpldapadmin/config.php"
+#    owner: www-data
+#    group: www-data
+#    mode: 0640
+#
+#- name: creating database population config
+#  template:
+#    src: "etc/openldap/slapd.d/populate_content.ldif.j2"
+#    dest: "/etc/openldap/slapd.d/populate_content.ldif"
+#    owner: root
+#    group: root
+#    mode: 0640
+#
+#- name: populating openLDAP
+#  shell: 'ldapadd -x -D {{ openldap_bind_id }} -w {{ openldap_admin_password }} -f /etc/openldap/slapd.d/populate_content.ldif'
+#  ignore_errors: yes  #set to get around erroring out that items already exist
+#  when: >
+#        openldap_populate is defined and
+#        openldap_populate

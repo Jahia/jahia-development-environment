@@ -1,11 +1,11 @@
 # Here are variables related to the Jahia installation
-jahia_package_name: "DigitalExperienceManager-EnterpriseDistribution-7.1.1.0-r53717.3663.jar"
-jahia_download_url: "https://www.jahia.com/downloads/jahia/digitalexperiencemanager7.1.1/{{jahia_package_name}}"
+jahia_package_name: "DigitalExperienceManager-EnterpriseDistribution-7.1.2.0-r54282.3731.jar"
+jahia_download_url: "https://www.jahia.com/downloads/jahia/digitalexperiencemanager7.1.2/{{jahia_package_name}}"
 jahia_name: "{{install_folder}}/DigitalFactory-EnterpriseDistribution"
 jahia_archive: "{{download_folder}}/{{jahia_package_name}}"
 jahia_modules: "{{jahia_name}}/digital-factory-data/modules"
 
-mf_download_url: https://www.jahia.com/downloads/jahia/marketingfactory1.0/package/unomi-context-server-package-1.0.0.tar.gz
+mf_download_url: "https://www.jahia.com/downloads/jahia/marketingfactory1.0/package/unomi-context-server-package-1.0.0.tar.gz"
 mf_name: "{{install_folder}}/context-server-package-1.0.0"
 mf_archive: "{{download_folder}}/unomi-context-server-package-1.0.0.tar.gz"
 mf_module: "EnterpriseDistribution-MarketingFactory-1.0.0.jar"

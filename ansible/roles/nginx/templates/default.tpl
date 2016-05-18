@@ -13,4 +13,8 @@ server {
         proxy_read_timeout          1600;
         send_timeout                1600;
   }
+
+  # logging
+  error_log /var/log/nginx/error.log;
+  access_log /var/log/nginx/access.log;
 }

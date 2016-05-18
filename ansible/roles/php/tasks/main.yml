@@ -1,0 +1,29 @@
+---
+- name: Install PHP FPM
+  sudo: yes
+  yum: name={{ item }} state=present
+  with_items:
+    - php-fpm
+    - phpldapadmin
+
+- lineinfile: dest=/etc/phpldapadmin/config.php regexp='^\/\/ \$servers->setValue\('login','attr','dn'\);' line='$servers->setValue('login','attr','dn');'
+- lineinfile: dest=/etc/phpldapadmin/config.php regexp='^\$servers->setValue\('login','attr','uid'\);' line='// $servers->setValue('login','attr','uid');'
+
+- group: name=www-data state=present
+
+- name: Fix ownership on PHPLDAPAdmin
+  file: state=directory path=/usr/share/phpldapadmin group=www-data recurse=yes
+
+- name: Add php nginx site
+  sudo: yes
+  template: src=default.tpl dest=/etc/nginx/default.d/php-fpm.conf
+  notify: Start php-fpm
+
+- name: Add phpldapadmin nginx site
+  sudo: yes
+  template: src=phpldapadmin.tpl dest=/etc/nginx/conf.d/phpldapadmin.conf
+  notify: Restart nginx
+
+- name: Add php info test
+  copy: src=info.php dest=/usr/share/nginx/html/info.php
+  notify: Restart nginx
