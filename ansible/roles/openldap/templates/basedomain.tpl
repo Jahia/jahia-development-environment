@@ -1,19 +1,19 @@
-dn: dc=srv,dc=world
+dn: {{ openldap_base }}
 objectClass: top
 objectClass: dcObject
 objectclass: organization
 o: Server World
-dc: srv
+dc: {{ openldap_company }}
 
-dn: cn=Manager,dc=srv,dc=world
+dn: cn=Manager,{{ openldap_base }}
 objectClass: organizationalRole
 cn: Manager
 description: Directory Manager
 
-dn: ou=People,dc=srv,dc=world
+dn: ou=People,{{ openldap_base }}
 objectClass: organizationalUnit
 ou: People
 
-dn: ou=Group,dc=srv,dc=world
+dn: ou=Group,{{ openldap_base }}
 objectClass: organizationalUnit
 ou: Group

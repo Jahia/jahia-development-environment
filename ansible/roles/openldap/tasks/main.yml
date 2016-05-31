@@ -18,7 +18,7 @@
 - name: Ensure openldap is started
   service: name=slapd state=started enabled=yes
 
-- name: Genrate ldap master password
+- name: Generate ldap master password
   shell: /usr/sbin/slappasswd -s {{ openldap_admin_password }}
   register: generated_root_password
   ignore_errors: yes
@@ -48,7 +48,7 @@
   command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif'
   ignore_errors: yes
 
-- name: Genrate ldap manager password
+- name: Generate ldap manager password
   shell: /usr/sbin/slappasswd -s {{ openldap_manager_password }}
   register: generated_manger_password
   ignore_errors: yes
@@ -69,7 +69,7 @@
 
 - name: Execute ldapadd to set domain
   sudo: yes
-  command: 'ldapadd -x -D cn=Manager,dc=srv,dc=world -w {{ openldap_manager_password }} -f /tmp/basedomain.ldif'
+  command: 'ldapadd -x -D cn=Manager,{{ openldap_base }} -w {{ openldap_manager_password }} -f /tmp/basedomain.ldif'
 
 - name: Ensure openldap is restarted
   service: name=slapd state=restarted enabled=yes

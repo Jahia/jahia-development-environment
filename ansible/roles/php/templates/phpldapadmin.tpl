@@ -3,7 +3,7 @@ server {
   listen          80;
 
   # Host that will serve this project.
-  server_name     ldap.local;
+  server_name     ldap.jahia.local;
 
   # Useful logs for debug.
   error_log /var/log/nginx/error.log;

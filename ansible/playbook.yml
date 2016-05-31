@@ -15,6 +15,7 @@
     - [ "vars/nginx.yml", "vars/ws_defaults.yml" ]
     - vars/php.yml
     - vars/openldap.yml
+    - vars/shibboleth.yml
   roles:
     - init
     - nginx
@@ -24,7 +25,8 @@
     - java
     - maven
     - jahia
-    - marketing
-    - forms
+#    - marketing
+#    - forms
     - tomcat
-    - mongodb
+    - shibboleth
+#    - mongodb

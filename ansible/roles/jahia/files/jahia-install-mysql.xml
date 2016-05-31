@@ -58,7 +58,7 @@
 <entry key="catalina.otherOptions" value=""/>
 <entry key="tomcat.sslPort" value="8443"/>
 <entry key="catalina.permSize" value="384"/>
-<entry key="catalina.heapSize" value="2048"/>
+<entry key="catalina.heapSize" value="4096"/>
 <entry key="tomcat.httpPort" value="8080"/>
 </userInput>
 </com.izforge.izpack.panels.UserInputPanel>

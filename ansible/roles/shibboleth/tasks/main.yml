@@ -1,0 +1,64 @@
+- name: Download Shibboleth
+  command: "wget -q -O {{shibboleth_archive}} {{shibboleth_download_url}} creates={{shibboleth_archive}}"
+
+- name: Unpack archive Shibboleth
+  command: "tar -zxf {{shibboleth_archive}} -C /opt creates={{shibboleth_name}}"
+
+#- command: "JAVA_HOME={{ java_link }} /opt/shibboleth-identity-provider-3.2.1/bin/install.sh <<< \"\n\nidp.jahia.local\n\njahia.local\nroot\nroot\nroot\nroot\n\""
+#  sudo: yes
+
+- name: Add Shibboleth nginx site
+  sudo: yes
+  template: src=shibboleth.tpl dest=/etc/nginx/conf.d/shibboleth.conf
+  notify: Restart nginx
+
+- name: Add IDP Tomcat Context
+  copy: src=idp.xml dest={{ tomcat }}/conf/Catalina/localhost/idp.xml
+
+- name: Download Shibboleth Lib
+  get_url: url={{ item }} dest={{ tomcat }}/lib
+  with_items:
+    - https://build.shibboleth.net/nexus/service/local/repositories/releases/content/net/shibboleth/utilities/trustany-ssl/1.0.0/trustany-ssl-1.0.0.jar
+    - http://central.maven.org/maven2/jstl/jstl/1.2/jstl-1.2.jar
+
+- name: Update Server.xml
+  copy: src=server.xml dest={{ tomcat }}/conf/server.xml
+
+- name: Update Metadata Provider
+  copy: src=metadata-providers.xml dest={{ shibboleth_install }}/conf/metadata-providers.xml
+
+- name: Update Access Control
+  copy: src=access-control.xml dest={{ shibboleth_install }}/conf/access-control.xml
+
+- name: Update LDAP Properties
+  copy: src=ldap.properties dest={{ shibboleth_install }}/conf/ldap.properties
+
+- name: Update Attribute Resolver
+  copy: src=attribute-resolver-full.xml dest={{ shibboleth_install }}/conf/attribute-resolver.xml
+
+- name: Update Relying Party
+  copy: src=relying-party.xml dest={{ shibboleth_install }}/conf/relying-party.xml
+
+#- name: Install pexpect
+#  yum: name={{ item }} state=present
+#  with_items:
+#    - python
+#    - pexpect.noarch
+#
+#- name: Build Shibboleth WAR
+#  sudo: yes
+#  expect:
+#    command: "JAVA_HOME={{java_link}} {{ shibboleth_name }}/bin/build.sh"
+#    echo: true
+#    responses:
+#      "Installation Directory": "/opt/shibboleth-idp"
+#      "Hostname.*?": "idp.jahia.local"
+#      "SAML EntityID.*?": "https://idp.jahia.local/idp/shibboleth"
+#      "Attribute Scope.*?": "jahia.local"
+#      "Backchannel PKCS12 Password.*?": "root"
+#      "Re-enter password.*?": "root"
+#      "Cookie Encryption Key Password.*?": "root"
+#      "Re-enter password.*?": "root"
+
+
+#https://sp.testshib.org/
