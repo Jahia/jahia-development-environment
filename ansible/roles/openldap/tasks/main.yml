@@ -11,6 +11,10 @@
 - name: Copy DB Config
   command: 'cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG'
 
+- name: Copy LDAP Config
+  sudo: yes
+  template: src=org.jahia.services.usermanager.ldap-jahiadx.cfg dest={{ jahia_modules }}/org.jahia.services.usermanager.ldap-jahiadx.cfg
+
 - name: Fix ownership on LDAP
   file: state=directory path=/var/lib/ldap owner=ldap group=ldap recurse=yes
   notify: Restart slapd

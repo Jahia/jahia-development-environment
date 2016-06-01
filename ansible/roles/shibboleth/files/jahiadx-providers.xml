@@ -47,7 +47,7 @@
         </md:KeyDescriptor>
         <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
         <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
-                                     Location="https://jahia.local:8443/sites/ACMESPACE/home.incoming.do" index="1"
+                                     Location="https://jahia.local:8443/cms/login.SAML.incoming" index="1"
                                      isDefault="true"/>
     </md:SPSSODescriptor>
 </md:EntityDescriptor>
