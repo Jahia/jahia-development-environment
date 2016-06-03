@@ -13,6 +13,9 @@
     - vars/jahia.yml
     - vars/tomcat.yml
     - [ "vars/nginx.yml", "vars/ws_defaults.yml" ]
+    - vars/php.yml
+    - vars/openldap.yml
+    - vars/shibboleth.yml
   roles:
     - init
     - nginx
@@ -22,5 +25,8 @@
     - jahia
     - marketing
     - forms
+    - php
+    - openldap
     - tomcat
+    - shibboleth
     - mongodb

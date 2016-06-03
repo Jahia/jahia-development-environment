@@ -30,3 +30,11 @@ name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.0/x86_64/
 gpgcheck=0
 enabled=1
+
+[security_shibboleth]
+name=Shibboleth (CentOS_7)
+type=rpm-md
+baseurl=http://download.opensuse.org/repositories/security:/shibboleth/CentOS_7/
+gpgcheck=1
+gpgkey=http://download.opensuse.org/repositories/security:/shibboleth/CentOS_7//repodata/repomd.xml.key
+enabled=1

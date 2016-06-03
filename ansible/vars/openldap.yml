@@ -1,0 +1,6 @@
+---
+# defaults file for ansible-openldap
+openldap_admin_password: 'root'
+openldap_manager_password: 'root'
+openldap_company: 'digitall'
+openldap_base: 'dc={{ openldap_company }},dc=com'

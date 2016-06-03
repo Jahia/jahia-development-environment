@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp.jahia.org/shibboleth-sp">
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:KeyDescriptor use="encryption">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDKDCCAhCgAwIBAgIVAN7RlN88O13BhNsRJqVbbPghVx1LMA0GCSqGSIb3DQEBCwUAMBoxGDAW
+                        BgNVBAMMD2lkcC5qYWhpYS5sb2NhbDAeFw0xNjA1MjYwOTU1NDRaFw0zNjA1MjYwOTU1NDRaMBox
+                        GDAWBgNVBAMMD2lkcC5qYWhpYS5sb2NhbDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+                        AIKa8OUk97enjG75/K3aU5w4CCFg2FX3Xg9LuX8eQFawnqXo+gUWik7jG5jva5a8l5HPbxR24d1D
+                        9DfwxdBkI7R70xB73zWqH5cishX09Le3mqvgmlU40Be62WJBj61fXUPMx8zT9MaYbTMID81KAnsT
+                        OfKFvov2NqPkVxeVo7xpNxXgpW9mgHtHSDIFydBWd24nbE64tJMQDBLfWJyV/B3wtaTSa32I29HC
+                        THo9PZJ6js5BLICLPt+kZoCt/nb/mZ5qbWaBY9PEklpGIykiy2qDE9c5hCt/ikocW8lo1494sUGW
+                        yfW63tmUf923IaQMKn8tl0AhS3g001cxVW3KtnECAwEAAaNlMGMwHQYDVR0OBBYEFCbjG/WWDo3M
+                        CECEAf1pmQLfnvYqMEIGA1UdEQQ7MDmCD2lkcC5qYWhpYS5sb2NhbIYmaHR0cHM6Ly9pZHAuamFo
+                        aWEubG9jYWwvaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQADggEBAGP9d8goHCo8UuFYAoi5
+                        qs5TtShGLAMp5TsgYVTeeYNSwK0lsrNSqu4lR1+Cxc8toFXfztfupOztb+b8QZy3FLJFemy0zjJd
+                        Tq+qJS+z5MfIkZJxM/3IbnUV2eXxGyo8UyiJHWWDxbeTUR+IoTpHKpCuhlOA69fpCqX2iy2XcZdQ
+                        JGcuxw2fxwC4W3pLqdBOk023bpUPHP7BEHhjaxZOCfA3CQdLRmTMPfwdTm2GtXsgXAg+sxdWcKjg
+                        aJcqmkwbJ4ugIWLN64xDRr3Xg04ktwHtnb9TzqKusjVmngP0nLYP4ancL6ubXbRAcHv5TZuWMwhf
+                        TImsPzSyeg0awr3NVv8=
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:KeyDescriptor use="signing">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDKDCCAhCgAwIBAgIVANqGAxd1MaMviw4FEVs4q2gKNVBWMA0GCSqGSIb3DQEBCwUAMBoxGDAW
+                        BgNVBAMMD2lkcC5qYWhpYS5sb2NhbDAeFw0xNjA1MjYwOTU1NDRaFw0zNjA1MjYwOTU1NDRaMBox
+                        GDAWBgNVBAMMD2lkcC5qYWhpYS5sb2NhbDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+                        AKxTKuEPf3Y1Ff23rCCsNtzB/UR6/jsBbBPrh80Pr0ADqKYbTWmvexXj6jgY8ghFh4HzX/1tka4b
+                        6akO/HHR3WbpTnVrChlBGOz8xWUvhnc1Q/vwS9ZlaT1iOMZDG+ILnhKcUHYhgxKsP6YqNSvMy+CR
+                        CvjR5rQCRDvYPgObA103OA/u7shH1/5gh+js48xpY9k/pCIL3rK6gXFNnKiyBplY9sYU3MR53j6w
+                        fotMip9QOjCeHXF1uVIV95P83wc0sOZ7saST1fId/5fxyIu30+AVirmQVp4JZ+pHv107drvTajBY
+                        x+zWRH95+D9hIkq98UFfHgFe+hEYOPUPqbW3W7sCAwEAAaNlMGMwHQYDVR0OBBYEFLi54EjJNVLU
+                        pMDKpx+Ci5m0zlE1MEIGA1UdEQQ7MDmCD2lkcC5qYWhpYS5sb2NhbIYmaHR0cHM6Ly9pZHAuamFo
+                        aWEubG9jYWwvaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQADggEBAGkbiEtM7ySaiBQ5cCpF
+                        gagit6KsIwn+BTtyPxm5gkHByK9P20VKzNXr+1A0Gew8VD7pSdDF9LenTz3llQtTXB043BnxITEE
+                        eIfW58MgfZb5CTR8hgmwKhMzZF/Zz76S5wKMF7hPi/OwBOFT2Vi4L8Tu+md8K7tSrUlsLvbRbS88
+                        JTZHWNENn/6ZpSkjqruZCl2W4b3tmANbz3LLD6Pbpo/X2QYM7W4l6D9mxZGPrsC35/bkByALD766
+                        jPwIVSGQUfs9FYcmapaII7n5gG+9UhyUZaKybow9QpDXiAe28Jlfu+B3nXlkap/P0/6Qo0LMttKY
+                        vrNzzsy0/3e336DDZZQ=
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                                     Location="https://jahia.local:8443/cms/login.SAML.incoming" index="1"
+                                     isDefault="true"/>
+    </md:SPSSODescriptor>
+</md:EntityDescriptor>

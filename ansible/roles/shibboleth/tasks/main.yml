@@ -1,0 +1,77 @@
+- name: Download Shibboleth
+  command: "wget -q -O {{shibboleth_archive}} {{shibboleth_download_url}} creates={{shibboleth_archive}}"
+
+- name: Unpack archive Shibboleth
+  command: "tar -zxf {{shibboleth_archive}} -C /opt creates={{shibboleth_name}}"
+
+- name: Fix ownership on Shibboleth Main
+  file: state=directory path={{shibboleth_name}} owner=vagrant group=vagrant recurse=yes
+
+- name: Install pip
+  yum: name={{ item }} state=present
+  with_items:
+    - python-pip
+
+- name: Install pexpect
+  pip: name=pexpect
+
+- name: Build Shibboleth WAR
+  sudo: yes
+  environment:
+    JAVA_HOME: "{{java_link}}"
+  expect:
+    command: "{{ shibboleth_name }}/bin/install.sh"
+    echo: true
+    responses:
+      "Source.*": "{{ shibboleth_name }}"
+      "Installation.*": "/opt/shibboleth-idp"
+      "Hostname.*": "{{host}}:{{ https_port }}"
+      "SAML.*": "https://{{host}}:{{ https_port }}/idp/shibboleth"
+      "Attribute.*": "jahia.local"
+      "Backchannel.*": "root"
+      "Re-enter.*": "root"
+      "Cookie.*": "root"
+      "Re-enter.*": "root"
+
+- name: Add Shibboleth nginx site
+  sudo: yes
+  template: src=shibboleth.tpl dest=/etc/nginx/conf.d/shibboleth.conf
+  notify: Restart nginx
+#
+- name: Add IDP Tomcat Context
+  template: src=idp.xml dest={{ tomcat }}/conf/Catalina/localhost/idp.xml
+
+- name: Download Shibboleth Lib
+  get_url: url={{ item }} dest={{ tomcat }}/lib
+  with_items:
+    - https://build.shibboleth.net/nexus/service/local/repositories/releases/content/net/shibboleth/utilities/trustany-ssl/1.0.0/trustany-ssl-1.0.0.jar
+    - http://central.maven.org/maven2/jstl/jstl/1.2/jstl-1.2.jar
+
+- name: Update Server.xml
+  template: src=server.xml dest={{ tomcat }}/conf/server.xml
+
+- name: Add JahiaDX Metadata
+  sudo: yes
+  copy: src=jahiadx-providers.xml dest=/usr/share/nginx/html/jahiadx-providers.xml
+
+- name: Add logback.xml
+  sudo: yes
+  copy: src=logback.xml dest={{ shibboleth_install }}/conf/logback.xml
+
+- name: Update Metadata Provider
+  template: src=metadata-providers.xml dest={{ shibboleth_install }}/conf/metadata-providers.xml
+
+- name: Update Access Control
+  template: src=access-control.xml dest={{ shibboleth_install }}/conf/access-control.xml
+
+- name: Update LDAP Properties
+  template: src=ldap.properties dest={{ shibboleth_install }}/conf/ldap.properties
+
+- name: Update Attribute Resolver
+  template: src=attribute-resolver-full.xml dest={{ shibboleth_install }}/conf/attribute-resolver.xml
+
+- name: Update Attribute Filter
+  template: src=attribute-filter.xml dest={{ shibboleth_install }}/conf/attribute-filter.xml
+
+- name: Update Relying Party
+  template: src=relying-party.xml dest={{ shibboleth_install }}/conf/relying-party.xml

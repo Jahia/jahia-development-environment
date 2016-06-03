@@ -15,5 +15,5 @@
 - name: Wait for tomcat to start
   wait_for: host={{host}} port={{http_port}}
 
-- name: Stop iptables
-  service: name=iptables state=stopped
+#- name: Stop iptables
+#  service: name=iptables state=stopped

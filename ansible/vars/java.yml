@@ -1,6 +1,8 @@
 # Here are variables related to the java installation
-java_package_name: "jdk-8u71-linux-x64.tar.gz"
-java_download_url: "http://download.oracle.com/otn-pub/java/jdk/8u71-b15/{{java_package_name}}"
-java_name: "{{install_folder}}/jdk1.8.0_71"
+java_package_name: "jdk-8u92-linux-x64.tar.gz"
+java_download_url: "http://download.oracle.com/otn-pub/java/jdk/8u92-b14/{{java_package_name}}"
+java_name: "{{install_folder}}/jdk1.8.0_92"
 java_archive: "{{download_folder}}/{{java_package_name}}"
 java_link: /usr/share/jvm
+java_env:
+      JAVA_HOME: /usr/share/jvm
