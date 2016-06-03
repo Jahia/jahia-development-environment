@@ -22,6 +22,17 @@ These files will be downloaded on your local environment in the `{{development-e
 ## Setting up ##
 * `cd {{development-environment}}`
 * `git clone git@github.com:Jahia/jahia-development-environment.git`
+* Create `vagrant_config.yml`
+```
+config:
+  box: 'box-cutter/centos70'
+  box_url: 'https://vagrantcloud.com/box-cutter/boxes/centos70/versions/2.0.13/providers/virtualbox.box'
+  name: 'jahia-local-dev'
+  memory: 8096
+  ip: '192.168.33.99'
+  #  synced_local_folder: '/Users/smomin/Documents/Projects'  // set path to the location of source code folder
+  #  synced_vagrant_folder: '/Users/smomin/Documents/Projects' // set path to the location of source code folder that will be created in the VM.  I am setting an identical path so that I can run mvn on my local and still have the Studio able to find the source.
+```
 * `vagrant up`
 
 ## Host configuration ##
