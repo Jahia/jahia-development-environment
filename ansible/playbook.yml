@@ -19,14 +19,14 @@
   roles:
     - init
     - nginx
-    - php
-    - openldap
     - mysql
     - java
     - maven
     - jahia
 #    - marketing
 #    - forms
+    - php
+    - openldap
     - tomcat
     - shibboleth
 #    - mongodb

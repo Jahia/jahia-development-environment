@@ -14,6 +14,7 @@
 * Apache Maven 3
 * MySQL 5
 * OpenLDAP
+* Shibboleth IDP
 * Monogo
 
 These files will be downloaded on your local environment in the `{{development-environment}}/opt` folder.  This folder can be removed, but any future `vagrant up` will redownload these files to set up your VM.  
@@ -25,7 +26,7 @@ These files will be downloaded on your local environment in the `{{development-e
 
 ## Host configuration ##
 * `sudo vi /etc/hosts`
-* Add `192.168.33.99 jahia.local ldap.jahia.local`
+* Add `192.168.33.99 jahia.local ldap.jahia.local idp.jahia.local`
 
 ## Start Jahia ##
 * Jahia is set up as a service.
@@ -34,30 +35,34 @@ These files will be downloaded on your local environment in the `{{development-e
 ## Navigate ##
 ### Tomcat ###
 * `http://jahia.local:8080/`
-* User: root
-* Password: root
+* User: `root`
+* Password: `root`
 
 ### Nginx ###
 * `http://jahia.local`
-* User: root
-* Password: root
+* User: `root`
+* Password: `root`
 
 ### OpenLDAP ###
 * `http://ldap.jahia.local`
-* User: cn=Manager,dc=digitall,dc=com
-* Password: root
+* User: `cn=Manager,dc=digitall,dc=com`
+* Password: `root`
+
+### Shibboleth IDP ###
+* IDP Metadata: `https://192.168.33.99:8443/idp/shibboleth`
+* IDP Status: `https://192.168.33.99:8443/idp/status`
+* Logs: `/opt/shibboleth-idp/logs`
 
 ### Mongo ###
 * Configurations
-* Host: 127.0.0.1
-* Port: 17017
-* DB: jahiadb
-* Collection: users
+* Host: `127.0.0.1`
+* Port: `17017`
+* DB: `jahiadb`
+* Collection: `users`
 * Users
-* dpatel@jahia.com/password
-* smomin@jahia.com/password
-* telachkar@jahia.com/password
-
+* `dpatel@jahia.com`/`password`
+* `smomin@jahia.com`/`password`
+* `telachkar@jahia.com`/`password`
 
 ## Shared Folders
 * Create a link or folder `/opt/code` on your local computer.  This path on your local will mirror that path on the virtual environment.  This way any maven commands executed on remote or local with have the correct path to the source code so that Jahia Studio will be able to scan the folders.  Developer can work in the virtual environment by SSH into the box.  If you plan to work in the manner, you can execute `mvn clean install jahia:deploy -P jahia-server`, which will package up the moduleset and deploy it to Digital Factory.

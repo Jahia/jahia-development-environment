@@ -13,7 +13,7 @@
 
 - name: Copy LDAP Config
   sudo: yes
-  template: src=org.jahia.services.usermanager.ldap-jahiadx.cfg dest={{ jahia_modules }}/org.jahia.services.usermanager.ldap-jahiadx.cfg
+  copy: src=org.jahia.services.usermanager.ldap-jahiadx.cfg dest={{ jahia_modules }}/org.jahia.services.usermanager.ldap-jahiadx.cfg
 
 - name: Fix ownership on LDAP
   file: state=directory path=/var/lib/ldap owner=ldap group=ldap recurse=yes

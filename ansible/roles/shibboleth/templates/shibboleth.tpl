@@ -6,7 +6,7 @@ server {
   ssl on;
   ssl_certificate {{ shibboleth_install }}/credentials/idp-encryption.crt;
   ssl_certificate_key {{ shibboleth_install }}/credentials/idp-encryption.key;
- 
+
   location / {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Server $host;
