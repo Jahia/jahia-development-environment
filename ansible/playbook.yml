@@ -23,10 +23,10 @@
     - java
     - maven
     - jahia
-#    - marketing
-#    - forms
+    - marketing
+    - forms
     - php
     - openldap
     - tomcat
     - shibboleth
-#    - mongodb
+    - mongodb

@@ -75,6 +75,14 @@
   sudo: yes
   command: 'ldapadd -x -D cn=Manager,{{ openldap_base }} -w {{ openldap_manager_password }} -f /tmp/basedomain.ldif'
 
+- name: Create initial.ldif
+  sudo: yes
+  template: src=initial.tpl dest=/tmp/initial.ldif
+
+- name: Execute ldapadd to populate initial users/groups
+  sudo: yes
+  command: 'ldapadd -x -D cn=Manager,{{ openldap_base }} -w {{ openldap_manager_password }} -f /tmp/initial.ldif'
+
 - name: Ensure openldap is restarted
   service: name=slapd state=restarted enabled=yes
   changed_when: False

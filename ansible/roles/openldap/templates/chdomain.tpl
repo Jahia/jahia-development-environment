@@ -24,27 +24,3 @@ replace: olcAccess
 olcAccess: {0}to attrs=userPassword,shadowLastChange by dn="cn=Manager,{{ openldap_base }}" write by anonymous auth by self write by * none
 olcAccess: {1}to dn.base="" by * read
 olcAccess: {2}to * by dn="cn=Manager,{{ openldap_base }}" write by * read
-
-<!--dn: cn=Sajid Momin,ou=People,{{ openldap_base }}-->
-<!--cn: Sajid Momin-->
-<!--givenname: Sajid-->
-<!--homephone: 5127854878-->
-<!--homepostaladdress: 555 4th St-->
-<!--initials: A-->
-<!--mail: smomin@jahia.com-->
-<!--objectclass: inetOrgPerson-->
-<!--objectclass: top-->
-<!--ou: people-->
-<!--postalcode: 94107-->
-<!--sn: Momin-->
-<!--st: CA-->
-<!--street: 555 4th St-->
-<!--telephonenumber: 5127854878-->
-<!--uid: smomin-->
-<!--userpassword: root-->
-
-<!--dn: cn=Registered Users,ou=Group,{{ openldap_base }}-->
-<!--cn: Registered Users-->
-<!--objectclass: groupOfUniqueNames-->
-<!--objectclass: top-->
-<!--uniquemember: cn=Sajid Momin,ou=People,{{ openldap_base }}-->

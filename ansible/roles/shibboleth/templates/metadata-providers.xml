@@ -61,7 +61,7 @@
     <MetadataProvider id="HTTPMetadataJahiaDX"
                       xsi:type="FileBackedHTTPMetadataProvider"
                       backingFile="%{idp.home}/metadata/jahiadx-providers.xml"
-                      metadataURL="f:///vagrant/opt/jahiadx-providers.xml"/>
+                      metadataURL="http://localhost/jahiadx-providers.xml"/>
 
     <!--
     <MetadataProvider id="LocalMetadata"  xsi:type="FilesystemMetadataProvider" metadataFile="PATH_TO_YOUR_METADATA"/>

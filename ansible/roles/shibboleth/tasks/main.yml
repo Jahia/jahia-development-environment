@@ -52,7 +52,7 @@
 
 - name: Add JahiaDX Metadata
   sudo: yes
-  copy: src=jahiadx-providers.xml dest={{ shibboleth_install }}/metadata/jahiadx-providers.xml
+  copy: src=jahiadx-providers.xml dest=/usr/share/nginx/html/jahiadx-providers.xml
 
 - name: Add logback.xml
   sudo: yes

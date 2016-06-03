@@ -15,7 +15,7 @@
 * MySQL 5
 * OpenLDAP
 * Shibboleth IDP
-* Monogo
+* Mongo
 
 These files will be downloaded on your local environment in the `{{development-environment}}/opt` folder.  This folder can be removed, but any future `vagrant up` will redownload these files to set up your VM.  
 
@@ -47,11 +47,15 @@ These files will be downloaded on your local environment in the `{{development-e
 * `http://ldap.jahia.local`
 * User: `cn=Manager,dc=digitall,dc=com`
 * Password: `root`
+* Users
+* `smomin`/`root`
+
 
 ### Shibboleth IDP ###
-* IDP Metadata: `https://192.168.33.99:8443/idp/shibboleth`
-* IDP Status: `https://192.168.33.99:8443/idp/status`
-* Logs: `/opt/shibboleth-idp/logs`
+* IDP Metadata: `https://192.168.33.99:8443/idp/shibboleth`, checks to see if IDP returns metadata
+* IDP Status: `https://192.168.33.99:8443/idp/status`, checks to see if IDP is configured properly
+* Logs: `/opt/shibboleth-idp/logs`, folder where logs are created.
+* SAML Authentication Valve, `git@github.com:Jahia/saml-authentication-valve.git`
 
 ### Mongo ###
 * Configurations
