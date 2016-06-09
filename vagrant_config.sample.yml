@@ -1,0 +1,10 @@
+# vagrant_config.yml
+
+config:
+  box: 'box-cutter/centos70'
+  box_url: 'https://vagrantcloud.com/box-cutter/boxes/centos70/versions/2.0.13/providers/virtualbox.box'
+  name: 'jahia-local-dev'
+  memory: 8096
+  ip: '192.168.33.99'
+#  synced_local_folder: '/Users/smomin/Documents/Projects'
+#  synced_vagrant_folder: '/Users/smomin/Documents/Projects'

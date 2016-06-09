@@ -22,17 +22,7 @@ These files will be downloaded on your local environment in the `{{development-e
 ## Setting up ##
 * `cd {{development-environment}}`
 * `git clone git@github.com:Jahia/jahia-development-environment.git`
-* Create `vagrant_config.yml`
-```
-config:
-  box: 'box-cutter/centos70'
-  box_url: 'https://vagrantcloud.com/box-cutter/boxes/centos70/versions/2.0.13/providers/virtualbox.box'
-  name: 'jahia-local-dev'
-  memory: 8096
-  ip: '192.168.33.99'
-  #  synced_local_folder: '/Users/smomin/Documents/Projects'  // set path to the location of source code folder
-  #  synced_vagrant_folder: '/Users/smomin/Documents/Projects' // set path to the location of source code folder that will be created in the VM.  I am setting an identical path so that I can run mvn on my local and still have the Studio able to find the source.
-```
+* Rename `vagrant_config.sample.yml` to `vagrant_config.yml`.  Make any adjustments to the configuration in the vagrant config.
 * `vagrant up`
 
 ## Host configuration ##
@@ -63,13 +53,12 @@ config:
 
 
 ### Shibboleth IDP ###
-The IDP is a java webapp deployed in the Jahia tomcat webapps folder.
-* IDP Metadata: `https://192.168.33.99:8443/idp/shibboleth`, checks to see if IDP returns metadata
-* IDP Status: `https://192.168.33.99:8443/idp/status`, checks to see if IDP is configured properly
+* IDP Metadata: `https://192.168.33.99:8443/idp/shibboleth`, checks to see if IDP returns sample metadata.
+* IDP Status: `https://192.168.33.99:8443/idp/status`, checks to see if IDP is configured properly.
 * Logs: `/opt/shibboleth-idp/logs`, folder where logs are created.
 * SAML Authentication Valve, `git@github.com:Jahia/saml-authentication-valve.git`
 
-If any issues hitting the above shibboleth end points, `vagrant ssh` into the environment and execute `sudo service tomcat restart`.
+The IDP is a java webapp deployed in the Jahia tomcat webapps folder.  If any issues hitting the above shibboleth end points, `vagrant ssh` into the environment and execute `sudo service tomcat restart`.
 
 ### Mongo ###
 * Configurations
