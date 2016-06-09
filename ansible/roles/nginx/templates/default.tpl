@@ -1,9 +1,14 @@
 server {
   listen          80;
+  listen          443;
   server_name     {{servername}};
   root            {{tomcat_link}}/webapps/ROOT;
 
   client_max_body_size 500M;
+
+  ssl on;
+  ssl_certificate {{ shibboleth_install }}/credentials/idp-encryption.crt;
+  ssl_certificate_key {{ shibboleth_install }}/credentials/idp-encryption.key;
 
   location / {
         proxy_set_header X-Forwarded-Host $host;

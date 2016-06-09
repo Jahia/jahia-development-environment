@@ -25,8 +25,8 @@
     responses:
       "Source.*": "{{ shibboleth_name }}"
       "Installation.*": "/opt/shibboleth-idp"
-      "Hostname.*": "{{host}}:{{ https_port }}"
-      "SAML.*": "https://{{host}}:{{ https_port }}/idp/shibboleth"
+      "Hostname.*": "idp.jahia.local"
+      "SAML.*": "https://idp.jahia.local/idp/shibboleth"
       "Attribute.*": "jahia.local"
       "Backchannel.*": "root"
       "Re-enter.*": "root"

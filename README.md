@@ -53,8 +53,8 @@ These files will be downloaded on your local environment in the `{{development-e
 
 
 ### Shibboleth IDP ###
-* IDP Metadata: `https://192.168.33.99:8443/idp/shibboleth`, checks to see if IDP returns sample metadata.
-* IDP Status: `https://192.168.33.99:8443/idp/status`, checks to see if IDP is configured properly.
+* IDP Metadata: `https://idp.jahia.local/idp/shibboleth`, checks to see if IDP returns metadata.
+* IDP Status: `https://idp.jahia.local/idp/status`, checks to see if IDP is configured properly.
 * Logs: `/opt/shibboleth-idp/logs`, folder where logs are created.
 * SAML Authentication Valve, `git@github.com:Jahia/saml-authentication-valve.git`
 
