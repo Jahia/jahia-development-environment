@@ -15,18 +15,18 @@
 #
  
 #Location of JAVA_HOME (bin files)
-export JAVA_HOME=/usr/share/jvm
+export JAVA_HOME={{java_link}}
  
 #Add Java binary files to PATH
 export PATH=$JAVA_HOME/bin:$PATH
  
 #CATALINA_HOME is the location of the bin files of Tomcat  
-export CATALINA_HOME=/usr/share/tomcat
+export CATALINA_HOME={{tomcat_link}}
  
 #CATALINA_BASE is the location of the configuration files of this instance of Tomcat
-export CATALINA_BASE=/usr/share/tomcat
+export CATALINA_BASE={{tomcat_link}}
 
-export CATALINA_OPTS="-Ddf.env=dev -Didp.home=/opt/shibboleth-idp"
+export CATALINA_OPTS="-Ddf.env=dev -Didp.home={{shibboleth_install}}"
  
 #TOMCAT_USER is the default user of tomcat
 export TOMCAT_USER=tomcat

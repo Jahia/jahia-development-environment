@@ -6,7 +6,7 @@
 #
 
 #Location of JAVA_HOME (bin files)
-export CONTEXT_SERVER_HOME=/opt/context-server-package-1.0.0
+export CONTEXT_SERVER_HOME={{mf_name}}
 
 #CONTEXT_SERVER_USAGE is the message if this script is called without any options
 CONTEXT_SERVER_USAGE="Usage: $0 {\e[00;32mstart\e[00m|\e[00;31mstop\e[00m|\e[00;32mstatus\e[00m|\e[00;31mrestart\e[00m}"

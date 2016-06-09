@@ -2,7 +2,9 @@ server {
   listen          80;
   server_name     {{servername}};
   root            {{tomcat_link}}/webapps/ROOT;
- 
+
+  client_max_body_size 500M;
+
   location / {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Server $host;

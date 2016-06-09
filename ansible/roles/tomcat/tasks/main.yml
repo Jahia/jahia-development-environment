@@ -4,7 +4,7 @@
   file: src={{tomcat}} path={{tomcat_link}} state=link  
 
 - name: Install Tomcat init script
-  copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
+  template: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
 
 - name: Create a link of init script and define load order
   file: src=/etc/init.d/tomcat path=/etc/rc3.d/S73tomcat state=link

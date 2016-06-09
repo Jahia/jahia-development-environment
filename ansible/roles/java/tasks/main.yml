@@ -3,7 +3,7 @@
   command: "wget -q -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{java_download_url}} creates={{java_archive}}"
 
 - name: Unpack archive Java
-  command: "tar -zxf {{java_archive}} -C /opt creates={{java_name}}"
+  command: "tar -zxf {{java_archive}} -C {{install_folder}} creates={{java_name}}"
 
 - name: Fix ownership on Java
   file: state=directory path={{java_name}} owner=vagrant group=vagrant recurse=yes
