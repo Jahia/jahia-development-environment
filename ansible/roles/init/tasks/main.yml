@@ -12,27 +12,33 @@
      - ImageMagick-devel
 
 - name: Update epel.repo
-  sudo: yes
+  become: yes
+  become_method: sudo
   copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
 
 - name: Update RPM-GPG-KEY-EPEL-7
-  sudo: yes
+  become: yes
+  become_method: sudo
   copy: src=RPM-GPG-KEY-EPEL-7 dest=/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 
 - name: Update mysql-community.repo
-  sudo: yes
+  become: yes
+  become_method: sudo
   copy: src=mysql-community.repo dest=/etc/yum.repos.d/mysql-community.repo
 
 - name: Update RPM-GPG-KEY-mysql
-  sudo: yes
+  become: yes
+  become_method: sudo
   copy: src=RPM-GPG-KEY-mysql dest=/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
 
 - name: Configure the timezone
-  sudo: yes
+  become: yes
+  become_method: sudo
   template: src=timezone.tpl dest=/etc/timezone
 
 - name: More Configure the timezone
-  sudo: yes
+  become: yes
+  become_method: sudo
   file: src=/usr/share/zoneinfo/{{timezone}} dest=/etc/localtime state=link force=yes backup=yes
 
 - name: Set the hostname in /etc/hostname
@@ -47,5 +53,6 @@
   lineinfile: dest=/etc/hosts regexp='^127\.0\.0\.1' line='127.0.0.1 localhost {{ hostname }}' owner=root group=root mode=0644
 
 - name: Creates /opt folder to keep downloaded files
-  sudo: yes
+  become: yes
+  become_method: sudo
   file: path=/vagrant/opt recurse=yes state=directory

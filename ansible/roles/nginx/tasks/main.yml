@@ -1,9 +1,11 @@
 ---
 - name: Install Nginx
-  sudo: yes
+  become: yes
+  become_method: sudo
   yum: name=nginx state=present
 
 - name: Change default nginx site
-  sudo: yes
+  become: yes
+  become_method: sudo
   template: src={{ ws_template }} dest={{ ws_vhost_path }}/{{ ws_vhost_file }}
   notify: Restart nginx

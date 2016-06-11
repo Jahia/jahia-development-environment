@@ -2,8 +2,11 @@
 - name: Download Java
   command: "wget -q -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{java_download_url}} creates={{java_archive}}"
 
+- name: Create Java Directory
+  file: path={{java_name}} state=directory mode=0755
+
 - name: Unpack archive Java
-  command: "tar -zxf {{java_archive}} -C {{install_folder}} creates={{java_name}}"
+  unarchive: src={{java_archive}} dest={{install_folder}} copy=no
 
 - name: Fix ownership on Java
   file: state=directory path={{java_name}} owner=vagrant group=vagrant recurse=yes

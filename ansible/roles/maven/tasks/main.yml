@@ -3,8 +3,11 @@
 - name: Download Maven
   command: "wget -q -O {{maven_archive}} {{maven_download_url}} creates={{maven_archive}}"
 
+- name: Create Maven Directory
+  file: path={{maven_name}} state=directory mode=0755
+
 - name: Unpack archive Maven
-  command: "tar -zxf {{maven_archive}} -C {{install_folder}} creates={{maven_name}}"
+  unarchive: src={{maven_archive}} dest={{install_folder}} copy=no
 
 - name: Fix ownership on Maven
   file: path={{maven_name}} recurse=yes state=directory owner=vagrant group=vagrant

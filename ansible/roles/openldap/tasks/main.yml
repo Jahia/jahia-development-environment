@@ -2,7 +2,8 @@
 # tasks file for ansible-openldap
 
 - name: Install OpenLDAP
-  sudo: yes
+  become: yes
+  become_method: sudo
   yum: name={{ item }} state=present
   with_items:
     - openldap-clients
@@ -12,7 +13,8 @@
   command: 'cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG'
 
 - name: Copy LDAP Config
-  sudo: yes
+  become: yes
+  become_method: sudo
   copy: src=org.jahia.services.usermanager.ldap-jahiadx.cfg dest={{ jahia_modules }}/org.jahia.services.usermanager.ldap-jahiadx.cfg
 
 - name: Fix ownership on LDAP
@@ -29,26 +31,31 @@
   changed_when: False
 
 - name: Create chrootpw.ldif
-  sudo: yes
+  become: yes
+  become_method: sudo
   template: src=chrootpw.tpl dest=/tmp/chrootpw.ldif
 
 - name: Execute ldapadd to update root password
-  sudo: yes
+  become: yes
+  become_method: sudo
   command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /tmp/chrootpw.ldif'
   ignore_errors: yes
 
 - name: Execute ldapadd to cosine schema
-  sudo: yes
+  become: yes
+  become_method: sudo
   command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif'
   ignore_errors: yes
 
 - name: Execute ldapadd to nis schema
-  sudo: yes
+  become: yes
+  become_method: sudo
   command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif'
   ignore_errors: yes
 
 - name: Execute ldapadd to inetorgperson schema
-  sudo: yes
+  become: yes
+  become_method: sudo
   command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif'
   ignore_errors: yes
 
@@ -59,28 +66,34 @@
   changed_when: False
 
 - name: Create chdomain.ldif
-  sudo: yes
+  become: yes
+  become_method: sudo
   template: src=chdomain.tpl dest=/tmp/chdomain.ldif
 
 - name: Execute ldapadd to update manager password
-  sudo: yes
+  become: yes
+  become_method: sudo
   command: 'ldapadd -Y EXTERNAL -H ldapi:/// -f /tmp/chdomain.ldif'
   ignore_errors: yes
 
 - name: Create basedomain.ldif
-  sudo: yes
+  become: yes
+  become_method: sudo
   template: src=basedomain.tpl dest=/tmp/basedomain.ldif
 
 - name: Execute ldapadd to set domain
-  sudo: yes
+  become: yes
+  become_method: sudo
   command: 'ldapadd -x -D cn=Manager,{{ openldap_base }} -w {{ openldap_manager_password }} -f /tmp/basedomain.ldif'
 
 - name: Create initial.ldif
-  sudo: yes
+  become: yes
+  become_method: sudo
   template: src=initial.tpl dest=/tmp/initial.ldif
 
 - name: Execute ldapadd to populate initial users/groups
-  sudo: yes
+  become: yes
+  become_method: sudo
   command: 'ldapadd -x -D cn=Manager,{{ openldap_base }} -w {{ openldap_manager_password }} -f /tmp/initial.ldif'
 
 - name: Ensure openldap is restarted

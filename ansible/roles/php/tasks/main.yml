@@ -1,6 +1,7 @@
 ---
 - name: Install PHP FPM
-  sudo: yes
+  become: yes
+  become_method: sudo
   yum: name={{ item }} state=present
   with_items:
     - php-fpm
@@ -15,12 +16,14 @@
   file: state=directory path=/usr/share/phpldapadmin group=www-data recurse=yes
 
 - name: Add php nginx site
-  sudo: yes
+  become: yes
+  become_method: sudo
   template: src=default.tpl dest=/etc/nginx/default.d/php-fpm.conf
   notify: Start php-fpm
 
 - name: Add phpldapadmin nginx site
-  sudo: yes
+  become: yes
+  become_method: sudo
   template: src=phpldapadmin.tpl dest=/etc/nginx/conf.d/phpldapadmin.conf
   notify: Restart nginx
 

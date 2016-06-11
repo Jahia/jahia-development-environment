@@ -3,8 +3,11 @@
 - name: Download Marketing Factory
   command: "wget -q -O {{mf_archive}} {{mf_download_url}} creates={{mf_archive}}"
 
+- name: Create Marketing Factory Directory
+  file: path={{mf_name}} state=directory mode=0755
+
 - name: Unpack archive Marketing Factory
-  command: "tar -zxf {{mf_archive}} -C {{install_folder}} creates={{mf_name}}"
+  unarchive: src={{mf_archive}} dest={{install_folder}} copy=no
 
 - name: Download Bundles
   get_url: url={{ item }} dest={{jahia_modules}}  mode=0440
