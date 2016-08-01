@@ -1,0 +1,11 @@
+---
+- name: Install extra tools
+  yum: name={{ item }} state=present
+  with_items:
+     - redis
+
+- name: Allow all address to be bound
+  lineinfile: dest=/etc/redis.conf regexp='bind 127\.0\.0\.1' line='bind 0.0.0.0'
+
+- name: Start Redis
+  service: name=redis enabled=yes state=started

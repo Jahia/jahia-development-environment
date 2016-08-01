@@ -16,6 +16,19 @@
   with_items:
     - http://central.maven.org/maven2/org/apache/felix/org.apache.felix.scr/2.0.2/org.apache.felix.scr-2.0.2.jar
     - http://central.maven.org/maven2/org/jbundle/util/osgi/wrapped/org.jbundle.util.osgi.wrapped.org.apache.http.client/4.1.2/org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2.jar
+    - https://store.jahia.com/cms/mavenproxy/private-app-store/org/jahia/modules/bootstrap3-core/3.4.1/bootstrap3-core-3.4.1.jar
+    - https://store.jahia.com/cms/mavenproxy/private-app-store/org/jahia/modules/bootstrap3-components/3.4.1/bootstrap3-components-3.4.1.jar
+    - https://store.jahia.com/cms/mavenproxy/private-app-store/org/jahia/modules/font-awesome/4.6.0/font-awesome-4.6.0.jar
+    - https://store.jahia.com/cms/mavenproxy/private-app-store/org/jahia/modules/distributed-sessions/1.0.0/distributed-sessions-1.0.0.jar
 
 - name: Fix ownership on Digital Factory
   file: state=directory path={{jahia_name}} owner=vagrant group=vagrant recurse=yes
+
+- name: Update ROOT web.xml
+  copy: src=web.xml dest={{jahia_name}}/tomcat/webapps/ROOT/WEB-INF/web.xml
+
+- name: Update jahia.node.properties
+  copy: src=jahia.node.properties dest={{jahia_name}}/digital-factory-config/jahia/jahia.node.properties
+
+- name: Update jahiaGeneratedResourcesDiskPath in jahia.properties
+  lineinfile: dest={{jahia_name}}/digital-factory-config/jahia/jahia.properties regexp='#jahiaGeneratedResourcesDiskPath\s*=\s*\${jahia.data.dir}\/generated-resources\/' line='jahiaGeneratedResourcesDiskPath = /vagrant/opt/generated-resources/'

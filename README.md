@@ -3,7 +3,7 @@
 * Vagrant 1.7.4 - http://www.vagrantup.com/downloads.html
 * Virtual Box 5.0.16 - https://www.virtualbox.org/
 * Homebrew - http://brew.sh/
-* Ansible, `brew install ansible`
+* Ansible 2.1.0.0, `brew install ansible`
 
 ## Installed Applications on VM ##
 * Digital Factory Enterprise Edition 7.1.2.0
@@ -16,6 +16,7 @@
 * OpenLDAP
 * Shibboleth IDP
 * Mongo
+* Redis
 
 These files will be downloaded on your local environment in the `{{development-environment}}/opt` folder.  This folder can be removed, but any future `vagrant up` will redownload these files to set up your VM.  
 
@@ -31,7 +32,14 @@ These files will be downloaded on your local environment in the `{{development-e
 
 ## Start Jahia ##
 * Jahia is set up as a service.
+* Is set up as a single-node cluster
+* Generated files are save under the /vagrant/opt/generated-resources
 ** `service tomcat stop|start|restart|status`
+
+### Regis ###
+* `/var/log/regis/redis.log`
+
+Regis will be used for Distributed Session.  The Distributed Session module has been already installed in Jahia.
 
 ## Navigate ##
 ### Tomcat ###
@@ -43,6 +51,10 @@ These files will be downloaded on your local environment in the `{{development-e
 * `http://jahia.local`
 * User: `root`
 * Password: `root`
+* `/var/log/nginx/access.log`
+* `/var/log/nginx/error.log`
+
+Nginx is set up for load balancing and sticky session.  Currently, Nginx is load balanced to one Jahia DX node.  Update the `/etc/nginx/conf.d/jahia.conf` to add another Jahia DX node.
 
 ### OpenLDAP ###
 * `http://ldap.jahia.local`
@@ -50,7 +62,6 @@ These files will be downloaded on your local environment in the `{{development-e
 * Password: `root`
 * Users
 * `smomin`/`root`
-
 
 ### Shibboleth IDP ###
 * IDP Metadata: `https://idp.jahia.local/idp/shibboleth`, checks to see if IDP returns metadata.
@@ -70,6 +81,7 @@ The IDP is a java webapp deployed in the Jahia tomcat webapps folder.  If any is
 * `dpatel@jahia.com`/`password`
 * `smomin@jahia.com`/`password`
 * `telachkar@jahia.com`/`password`
+* `/var/log/mongodb/mongod.log`
 
 ## Shared Folders
 * Create a link or folder `/opt/code` on your local computer.  This path on your local will mirror that path on the virtual environment.  This way any maven commands executed on remote or local with have the correct path to the source code so that Jahia Studio will be able to scan the folders.  Developer can work in the virtual environment by SSH into the box.  If you plan to work in the manner, you can execute `mvn clean install jahia:deploy -P jahia-server`, which will package up the moduleset and deploy it to Digital Factory.
