@@ -18,6 +18,7 @@
     - vars/shibboleth.yml
   roles:
     - init
+    - redis
     - nginx
     - mysql
     - java

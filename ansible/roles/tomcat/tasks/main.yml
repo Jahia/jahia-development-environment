@@ -1,7 +1,7 @@
 ---
 # roles/tomcat/tasks/main.yml
 - name: Symlink install directory
-  file: src={{tomcat}} path={{tomcat_link}} state=link  
+  file: src={{tomcat}} path={{tomcat_link}} state=link
 
 - name: Install Tomcat init script
   template: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
