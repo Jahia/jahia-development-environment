@@ -30,4 +30,4 @@
     - openldap
     - tomcat
     - shibboleth
-    - mongodb
+#    - mongodb

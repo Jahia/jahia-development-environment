@@ -7,7 +7,7 @@
     - MySQL-python
 
 - name: Download MySQL Driver
-  get_url: url=http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar dest={{download_folder}}
+  get_url: url=https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar dest={{download_folder}}
 
 - name: Ensure MySQL is started and enabled on boot.
   service: "name=mysqld state=started enabled=yes" 

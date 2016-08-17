@@ -1,4 +1,5 @@
 # Jahia Vagrant Development Environment #
+This is not supported by Jahia.  Use at your own risk.
 ## Install ##
 * Vagrant 1.7.4 - http://www.vagrantup.com/downloads.html
 * Virtual Box 5.0.16 - https://www.virtualbox.org/
@@ -87,21 +88,6 @@ The IDP is a java webapp deployed in the Jahia tomcat webapps folder.  If any is
 * Create a link or folder `/opt/code` on your local computer.  This path on your local will mirror that path on the virtual environment.  This way any maven commands executed on remote or local with have the correct path to the source code so that Jahia Studio will be able to scan the folders.  Developer can work in the virtual environment by SSH into the box.  If you plan to work in the manner, you can execute `mvn clean install jahia:deploy -P jahia-server`, which will package up the moduleset and deploy it to Digital Factory.
 
 If the steps above execute without any errors, you should now be able to navigate to `http://jahia.local`.
-
-## Switching JDK ##
-The default JDK used is 1.8.
-####If needed, you can switch the JDK being used by editing config.yml, then modify those three lines :####
-* `java_download_url:` provide another download link
-* `java_name:`
-* `java_archive:`
-####After such modifications, you need to apply the new configuration by destroying the machine being runned by Vagrant and recreating it. Do :####
-* `vagrant destroy`
-* `vagrant up`
-
-## Other things to install ##
-### IntelliJ (or another IDE) ###
-If you decide to download IntelliJ, download the ultimate version : https://www.jetbrains.com/idea/download/
-Then ask Michel Romy a licence. The licence will be imbued to your email, while launching IntelliJ you just have to log in with it.
 
 ## Deploy a module on the Virtual Machine ##
 ### Create a symbolic link ###
