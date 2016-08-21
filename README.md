@@ -68,9 +68,18 @@ Nginx is set up for load balancing and sticky session.  Currently, Nginx is load
 * IDP Metadata: `https://idp.jahia.local/idp/shibboleth`, checks to see if IDP returns metadata.
 * IDP Status: `https://idp.jahia.local/idp/status`, checks to see if IDP is configured properly.
 * Logs: `/opt/shibboleth-idp/logs`, folder where logs are created.
-* SAML Authentication Valve, `git@github.com:Jahia/saml-authentication-valve.git`
+* SAML Authentication Valve, `git@github.com:Jahia/saml-authentication-valve.git`, must be enabled for the site
 
-The IDP is a java webapp deployed in the Jahia tomcat webapps folder.  If any issues hitting the above shibboleth end points, `vagrant ssh` into the environment and execute `sudo service tomcat restart`.
+#### Edit Mode ####
+* Site Settings > SAML2 Settings 
+* Identity Provider Url: https://idp.jahia.com/idp/shibboleth
+* Relying Party Indentifier: https://sp.jahia.org/shibboleth-sp
+* Incoming Target Url: /cms/login.SAML.incoming
+* IDP Metadata Location: /opt/shibboleth-idp/metadata/idp-metadata.xml
+* Signing Cert Location: /opt/shibboleth-idp/credentials/idp-signing.crt
+* Encryption Cert Location: /opt/shibboleth-idp/credentials/idp-encryption.crt
+
+The IDP is a java webapp deployed in the Jahia tomcat webapps folder.  If any issues hitting the above shibboleth end points, `vagrant ssh` into the environment and execute `sudo service tomcat restart` or `vagrant reload` to restart the virtual machine.
 
 ### Mongo ###
 * Configurations
