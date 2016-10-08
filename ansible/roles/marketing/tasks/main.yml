@@ -6,6 +6,12 @@
 - name: Unpack archive Marketing Factory
   command: "tar -zxf {{mf_archive}} -C {{install_folder}} creates={{mf_name}}"
 
+- name: Download all countries to unomi
+  command: "wget -q -O {{mf_all_countries_archive}} {{ mf_all_countries_url }} creates={{mf_all_countries_archive}}"
+
+#- name: Copy all countries to unomi
+#  command: "cp "src={{ download_folder }}/allCountries.zip dest={{ mf_name }}/etc
+
 - name: Download Bundles
   get_url: url={{ item }} dest={{jahia_modules}}  mode=0440
   with_items:
@@ -27,3 +33,7 @@
 
 - name: Start Context Server
   service: name=contextserver state=restarted enabled=yes
+
+#- name: Update geonamesDatabase cfg
+#  lineinfile: dest={{ mf_name }}/etc/org.apache.unomi.geonames.cfg regexp='request.geonamesDatabase.forceImport=false' line='request.geonamesDatabase.forceImport=true'
+

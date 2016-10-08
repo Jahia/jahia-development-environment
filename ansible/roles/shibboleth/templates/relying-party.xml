@@ -61,7 +61,7 @@
             <property name="profileConfigurations">
                 <list>
                     <bean parent="SAML2.SSO"
-                          p:encryptAssertions="false" p:encryptAttributes="false" p:encryptNameIDs="false"/>
+                          p:encryptAssertions="true" p:encryptAttributes="true" p:encryptNameIDs="true"/>
                 </list>
             </property>
         </bean>

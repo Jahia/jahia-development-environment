@@ -2,7 +2,7 @@
 This is not supported by Jahia.  Use at your own risk.
 ## Install ##
 * Vagrant 1.7.4 - http://www.vagrantup.com/downloads.html
-* Virtual Box 5.0.16 - https://www.virtualbox.org/
+* Virtual Box 5.0.26 - https://www.virtualbox.org/
 * Homebrew - http://brew.sh/
 * Ansible 2.1.0.0, `brew install ansible`
 
@@ -72,12 +72,13 @@ Nginx is set up for load balancing and sticky session.  Currently, Nginx is load
 
 #### Edit Mode ####
 * Site Settings > SAML2 Settings 
-* Identity Provider Url: https://idp.jahia.com/idp/shibboleth
+* Identity Provider Url: https://idp.jahia.local/idp/shibboleth
 * Relying Party Indentifier: https://sp.jahia.org/shibboleth-sp
 * Incoming Target Url: /cms/login.SAML.incoming
-* IDP Metadata Location: /opt/shibboleth-idp/metadata/idp-metadata.xml
-* Signing Cert Location: /opt/shibboleth-idp/credentials/idp-signing.crt
-* Encryption Cert Location: /opt/shibboleth-idp/credentials/idp-encryption.crt
+* SP MetaData Location: /usr/share/nginx/html/jahiadx-providers.xml
+* Key Store Location: /usr/share/jvm/jre/lib/security/sp.jks
+* Key Store Pass: pac4j-demo-passwd
+* Private Key Pass Cert: pac4j-demo-passwd
 
 The IDP is a java webapp deployed in the Jahia tomcat webapps folder.  If any issues hitting the above shibboleth end points, `vagrant ssh` into the environment and execute `sudo service tomcat restart` or `vagrant reload` to restart the virtual machine.
 
