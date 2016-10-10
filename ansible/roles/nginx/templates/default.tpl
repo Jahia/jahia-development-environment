@@ -13,10 +13,11 @@ server {
   client_max_body_size 500M;
 
   ssl on;
-  ssl_certificate {{ shibboleth_install }}/credentials/idp-encryption.crt;
-  ssl_certificate_key {{ shibboleth_install }}/credentials/idp-encryption.key;
+  ssl_certificate {{ java_name }}/jre/lib/security/jahia.crt;
+  ssl_certificate_key {{ java_name }}/jre/lib/security/jahia.key;
 
   location / {
+        proxy_set_header Host $host;
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
