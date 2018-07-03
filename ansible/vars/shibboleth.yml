@@ -1,5 +1,5 @@
 shibboleth_package_name: "shibboleth-identity-provider-3.2.1.tar.gz"
-shibboleth_download_url: "https://shibboleth.net/downloads/identity-provider/latest/{{ shibboleth_package_name }}"
+shibboleth_download_url: "https://shibboleth.net/downloads/identity-provider/3.2.1/{{ shibboleth_package_name }}"
 shibboleth_name: "{{install_folder}}/shibboleth-identity-provider-3.2.1"
 shibboleth_archive: "{{download_folder}}/{{shibboleth_package_name}}"
 shibboleth_install: "/opt/shibboleth-idp"
